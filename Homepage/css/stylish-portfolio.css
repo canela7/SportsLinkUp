@@ -233,6 +233,7 @@ h6 {
   position: relative;
   overflow: hidden;
   max-width: 530px;
+  max-height: 800px;
   margin: auto auto 1rem;
 }
 
