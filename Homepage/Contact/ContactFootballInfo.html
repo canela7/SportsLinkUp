@@ -47,7 +47,25 @@
 <div class="w3-row w3-section">
     <div class="w3-col" style="width:50px"><i class="fa fa-location-arrow" style="font-size:36px"></i></div>
       <div class="w3-rest">
-        <input class="w3-input w3-border" name="locationFootball" type="text" placeholder="Address, City, State, Zip Code">
+        <input class="w3-input w3-border" name="locationFootball" type="text" placeholder="Park Address, City, State, Zip Code">
+      </div>
+</div>
+
+<!--Time Description-->
+<div class="w3-row w3-section">
+    <div class="w3-col" style="width:50px"><i class="fas fa-clock" style="font-size:36px" ></i></div>
+      <div class="w3-rest">
+
+          <form>
+              <div>
+                  <label for="party">Date and Time (required times only 9.00am - 7.30pm):</label>
+                  <input id="party" type="datetime-local" name="footballDate" min="2018-05-01T08:30" max="2020-06-30T18:30" required>
+                  <span class="validity"></span>
+              </div>
+              <div>
+                  <input type="submit" value="Set time!">
+              </div>
+          </form>
       </div>
 </div>
 
@@ -58,7 +76,7 @@
 <div class="w3-row w3-section">
   <div class="w3-col" style="width:50px"><i class="fas fa-pencil-alt" style="font-size:36px"></i></div>
     <div class="w3-rest">
-      <input class="w3-input w3-border" name="footballDescription" type="text" placeholder="Description">
+        <textarea class="w3-input w3-border" name="cricketDescription"  placeholder="Description of the Football Event" ></textarea><br />
     </div>
 </div>
 
