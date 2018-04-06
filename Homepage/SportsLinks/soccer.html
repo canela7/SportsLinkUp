@@ -31,42 +31,34 @@ body {
 
 
 
-
-
-table {  
-    color: #333;
-    font-family: Helvetica, Arial, sans-serif;
-    width: 640px; 
-    border-collapse: 
-    collapse; border-spacing: 0; 
-    overflow: scroll;
-}
-
-td, th {  
-    border: 1px solid transparent; 
-    height: 30px; 
-    transition: all 0.3s;  
-}
-
-
 th {  
     background: #DFDFDF;  
-    font-weight: bold;
+    font-weight: bold; 
+    height: 70px;
 }
 
 td {  
     background: #FAFAFA;
     text-align: center;
+    height: 70px;
+    width: 500px;
 }
 
 
-tr td:hover { background: #666; color: #FFF; }  
+tr td:hover { 
+  background: #666; 
+  color: #FFF;
+}  
 
 
 
 table.d {
     table-layout: fixed;
-    width: 100%;    
+    width: 90%;    
+    overflow-y: scroll;
+    height: 300px;
+    display: block; 
+
 }
 
 
@@ -134,15 +126,17 @@ table.d {
     <p class="w3-opacity"><i>Play Soccer</i></p>
 
     
-      <table class="d">
+      <table class="d" align="center">
         <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
+          <th>Name</th>
+          <th>Title</th>
+          <th>Date</th>
+          <th>Date</th>
         </tr>
         <tr>
           <td>Alfreds Futterkiste</td>
           <td>Maria Anders</td>
+          <td>Germany</td>
           <td>Germany</td>
         </tr>
         <tr>
