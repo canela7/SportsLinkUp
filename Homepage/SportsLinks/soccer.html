@@ -29,6 +29,50 @@ body {
     cursor: pointer;
 }
 
+table.d
+{
+	width: 100%;
+	height: 300px;  
+}
+
+thead
+{
+	display: block;
+	width: 100%;
+	overflow: auto;
+	color: black;
+	
+}
+
+tbody
+{
+	display: block;
+	width: 100%;
+	height: 200px;
+	overflow: auto;
+}
+
+th
+{
+	background: #DFDFDF;  
+    font-weight: bold; 
+    height: 70px;
+    width: 500px;
+}
+
+td {  
+    background: #FAFAFA;
+    text-align: center;
+    height: 70px;
+    width: 500px;
+}
+
+tr td:hover { 
+  background: #666; 
+  color: #FFF;
+}
+
+
 </style>
 <body>
 
@@ -90,13 +134,66 @@ body {
     
     <h2 class="w3-wide">Current Soccer Events</h2>
     <p class="w3-opacity"><i>Play Soccer</i></p>
-    <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <table class="d" align="center">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Title</th>
+          <th>Date of Post</th>
+          <th>Date of Event</th>
+          <th>View Event</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>4v4 Soccer Game</td>
+          <td>09-21-2018</td>
+          <td>09-27-2018</td>
+          <td><a href=#> View Event </a></td>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Soccer Game For Fun</td>
+          <td>09-21-2018</td>
+          <td>09-27-2018</td>
+          <td><a href=#> View Event </a></td>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>Need 3 players for socer team!</td>
+          <td>09-21-2018</td>
+          <td>10-20-2018</td>
+          <td><a href=#> View Event </a></td>
+        </tr>
+        <tr>
+          <td>Magazzini Alimentari Riuniti</td>
+          <td>Soccer For Fun</td>
+          <td>09-21-2018</td>
+          <td>10-20-2018</td>
+          <td><a href=#> View Event </a></td>
+        </tr>
+        <tr>
+            <td>Alfreds Futterkiste</td>
+            <td>Need 3 players for socer team!</td>
+            <td>09-21-2018</td>
+            <td>10-20-2018</td>
+            <td><a href=#> View Event </a></td>
+          </tr>
+          <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Soccer For Fun</td>
+            <td>09-21-2018</td>
+            <td>10-20-2018</td>
+            <td><a href=#> View Event </a></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
   
+    
 
-
-     
+      <h1>Link Up!</h1>
       <a href="../Contact/ContactSoccerInfo.html" class="button">Create Soccer Link Up</a>  
 
   </div>
