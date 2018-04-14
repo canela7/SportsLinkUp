@@ -79,12 +79,11 @@ tr td:hover {
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="../index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="Basketball.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Basketball</a>
-    <a href="Soccer.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Soccer</a>
-    <a href="Football.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Football</a>
-    <a href="Cricket.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Cricket</a>
+    <a href="basketball.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Basketball</a>
+    <a href="soccer.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Soccer</a>
+    <a href="football.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Football</a>
+    <a href="cricket.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Cricket</a>
     <div class="w3-dropdown-hover w3-hide-small">
     
     </div>
@@ -94,10 +93,10 @@ tr td:hover {
 
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
-    <a href="Basketball.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Basketball</a>
-    <a href="Soccer.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Soccer</a>
-    <a href="Football.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Football</a>
-    <a href="Cricket.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Cricket</a>
+    <a href="basketball.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Basketball</a>
+    <a href="soccer.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Soccer</a>
+    <a href="football.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Football</a>
+    <a href="cricket.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Cricket</a>
 </div>
 
 <!-- Page content -->
@@ -132,59 +131,77 @@ tr td:hover {
   <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
     
     <h2 class="w3-wide">Current Basketball Events</h2>
-    <p class="w3-opacity"><i>Play Basketball</i></p>
-    <table class="d" align="center">
+    <p class="w3-opacity">
+        <i>Play Basketball</i>
+      </p>
+      <h4 class="w3-wide">Search:
+        <input text="text" name="query" placeHolder="Search City">
+        <input type="submit" value="Search">
+      </h4>
+      <table class="d" align="center">
         <thead>
-        <tr>
-          <th>Name</th>
-          <th>Title</th>
-          <th>Date of Post</th>
-          <th>Date of Event</th>
-          <th>View Event</th>
-        </tr>
+          <tr>
+            <th>City</th>
+            <th>Title</th>
+            <th>Date of Post</th>
+            <th>Date of Event</th>
+            <th>View Event</th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>4v4 Soccer Game</td>
-          <td>09-21-2018</td>
-          <td>09-27-2018</td>
-          <td><a href=#> View Event </a></td>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Soccer Game For Fun</td>
-          <td>09-21-2018</td>
-          <td>09-27-2018</td>
-          <td><a href=#> View Event </a></td>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Need 3 players for socer team!</td>
-          <td>09-21-2018</td>
-          <td>10-20-2018</td>
-          <td><a href=#> View Event </a></td>
-        </tr>
-        <tr>
-          <td>Magazzini Alimentari Riuniti</td>
-          <td>Soccer For Fun</td>
-          <td>09-21-2018</td>
-          <td>10-20-2018</td>
-          <td><a href=#> View Event </a></td>
-        </tr>
-        <tr>
-            <td>Alfreds Futterkiste</td>
+          <tr>
+            <td>Los Angeles</td>
+            <td>4v4 Soccer Game</td>
+            <td>09-21-2018</td>
+            <td>09-27-2018</td>
+            <td>
+              <a href=#> View Event </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Los Angeles</td>
+            <td>Soccer Game For Fun</td>
+            <td>09-21-2018</td>
+            <td>09-27-2018</td>
+            <td>
+              <a href=#> View Event </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Los Angeles</td>
             <td>Need 3 players for socer team!</td>
             <td>09-21-2018</td>
             <td>10-20-2018</td>
-            <td><a href=#> View Event </a></td>
+            <td>
+              <a href=#> View Event </a>
+            </td>
           </tr>
           <tr>
-            <td>Magazzini Alimentari Riuniti</td>
+            <td>Boston</td>
             <td>Soccer For Fun</td>
             <td>09-21-2018</td>
             <td>10-20-2018</td>
-            <td><a href=#> View Event </a></td>
+            <td>
+              <a href=#> View Event </a>
+            </td>
+          </tr>
+          <tr>
+            <td>San Francisco</td>
+            <td>Need 3 players for socer team!</td>
+            <td>09-21-2018</td>
+            <td>10-20-2018</td>
+            <td>
+              <a href=#> View Event </a>
+            </td>
+          </tr>
+          <tr>
+            <td>San Diego</td>
+            <td>Soccer For Fun</td>
+            <td>09-21-2018</td>
+            <td>10-20-2018</td>
+            <td>
+              <a href=#> View Event </a>
+            </td>
           </tr>
         </tbody>
       </table>
