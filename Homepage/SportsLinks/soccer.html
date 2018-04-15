@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
   crossorigin="anonymous">
-
+<link rel="stylesheet" href="../css/styles.css" />
 <style>
   body {
     font-family: "Lato", sans-serif
@@ -37,7 +37,7 @@
   }
 
   thead {
-    display: block;
+    display: table-header-group;
     width: 100%;
     overflow: auto;
     color: black;
@@ -45,7 +45,7 @@
   }
 
   tbody {
-    display: block;
+    display: table-header-group;
     width: 100%;
     height: 200px;
     overflow: auto;
@@ -69,8 +69,8 @@
     background: #666;
     color: #FFF;
   }
-
 </style>
+
 <body>
 
 
@@ -85,7 +85,9 @@
       <div class="w3-dropdown-hover w3-hide-small">
 
       </div>
-      <a href="#band" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+      <a href="#app" class="w3-padding-large w3-hover-red w3-hide-small w3-right">
+        <i class="fa fa-search"></i>
+      </a>
     </div>
   </div>
 
@@ -132,7 +134,7 @@
 
 
     <!-- The Band Section -->
-    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="app">
 
       <h2 class="w3-wide">Current Soccer Events</h2>
       <p class="w3-opacity">
@@ -149,60 +151,25 @@
             <th>Title</th>
             <th>Date of Post</th>
             <th>Date of Event</th>
+            <th>Votes</th>
             <th>View Event</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Los Angeles</td>
-            <td>4v4 Soccer Game</td>
-            <td>09-21-2018</td>
-            <td>09-27-2018</td>
+          <tr v-for="events in sortedEvents">
+            <td>{{events.city}}</td>
+            <td>{{events.description}}</td>
+            <td>{{events.startdate}}</td>
+            <td>{{events.enddate}}</td>
             <td>
-              <a href=#> View Event </a>
+              <span class="icon is-small" @click="upvote(events.id)">
+                <i class="fa fa-chevron-up"></i>
+              </span>
+              <span class="icon is-small" @click="downvote(events.id)">
+                <i class="fa fa-chevron-down"></i>
+                <strong class="has-text-info">{{events.votes}}</strong>
+              </span>
             </td>
-          </tr>
-          <tr>
-            <td>Los Angeles</td>
-            <td>Soccer Game For Fun</td>
-            <td>09-21-2018</td>
-            <td>09-27-2018</td>
-            <td>
-              <a href=#> View Event </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Los Angeles</td>
-            <td>Need 3 players for socer team!</td>
-            <td>09-21-2018</td>
-            <td>10-20-2018</td>
-            <td>
-              <a href=#> View Event </a>
-            </td>
-          </tr>
-          <tr>
-            <td>Boston</td>
-            <td>Soccer For Fun</td>
-            <td>09-21-2018</td>
-            <td>10-20-2018</td>
-            <td>
-              <a href=#> View Event </a>
-            </td>
-          </tr>
-          <tr>
-            <td>San Francisco</td>
-            <td>Need 3 players for socer team!</td>
-            <td>09-21-2018</td>
-            <td>10-20-2018</td>
-            <td>
-              <a href=#> View Event </a>
-            </td>
-          </tr>
-          <tr>
-            <td>San Diego</td>
-            <td>Soccer For Fun</td>
-            <td>09-21-2018</td>
-            <td>10-20-2018</td>
             <td>
               <a href=#> View Event </a>
             </td>
@@ -221,7 +188,6 @@
 
 
 
-
     <!-- Map -->
     <section id="contact" class="map">
       <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
@@ -233,6 +199,7 @@
 
     <!-- End Page Content -->
   </div>
+
 
 
 
@@ -284,7 +251,9 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
+  <script src="https://unpkg.com/vue"></script>
+  <script src="../js/seed.js"></script>
+  <script src="../js/main.js"></script>
 
 
 </body>
