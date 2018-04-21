@@ -11,16 +11,16 @@
     <title>Sports Link Up</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./HomepageContent/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="./HomepageContent/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="./HomepageContent/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
-
+	<link rel="stylesheet" type="text/css" href="./HomepageContent/css/stylish-portfolio.css" />
   </head>
 
   <body id="page-top">
@@ -32,12 +32,6 @@
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
           <a class="js-scroll-trigger" href="#page-top">SportsLinkUp</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#page-top">Home</a>
-        </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">About</a>
         </li>
         <li class="sidebar-nav-item">
           <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
@@ -55,7 +49,7 @@
   <!-- Call to Action -->
   <section class="content-section bg-primary text-white">
     <div class="container text-center">
-      <h1 style="font-size:75px"><a href="index.html" style="color: white">SportsLinkUp</a></h1>
+      <h1 style="font-size:75px"><a href="Homepage" style="color: white">SportsLinkUp</a></h1>
     </div>
   </section>
 
@@ -71,7 +65,7 @@
         </div>
         <div class="row no-gutters">
           <div class="col-lg-6">
-            <a class="portfolio-item" href="SportsLinks/basketball.html">
+            <a class="portfolio-item" href="Basketball">
               <span class="caption">
                 <span class="caption-content">
                   <h1>BasketBall</h1>
@@ -80,11 +74,11 @@
                   <br>
                 </span>
               </span>
-              <img class="img-fluid" src="img/Basketball-1.jpg" alt="">
+              <img class="img-fluid" src="./HomepageContent/img/Basketball-1.jpg" alt="">
             </a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="SportsLinks/soccer.html">
+            <a class="portfolio-item" href="Soccer">
               <span class="caption">
                 <span class="caption-content">
                   <h1>Soccer</h1>
@@ -93,11 +87,11 @@
                   <br>
                 </span>
               </span>
-              <img class="img-fluid" src="img/Soccer-1.jpg" alt="" >
+              <img class="img-fluid" src="./HomepageContent/img/Soccer-1.jpg" alt="" >
             </a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="SportsLinks/football.html">
+            <a class="portfolio-item" href="Football">
               <span class="caption">
                 <span class="caption-content">
                   <h1>Football</h1>
@@ -106,11 +100,11 @@
                   <br>
                 </span>
               </span>
-              <img class="img-fluid" src="img/Football-2.jpg" alt="">
+              <img class="img-fluid" src="./HomepageContent/img/Football-2.jpg" alt="">
             </a>
           </div>
           <div class="col-lg-6">
-            <a class="portfolio-item" href="SportsLinks/cricket.html">
+            <a class="portfolio-item" href="Cricket">
               <span class="caption">
                 <span class="caption-content">
                   <h1>Cricket</h1>
@@ -119,7 +113,7 @@
                   <br>
                 </span>
               </span>
-              <img class="img-fluid" src="img/Cricket-2.jpg" alt="">
+              <img class="img-fluid" src="./HomepageContent/img/Cricket-2.jpg" alt="">
             </a>
           </div>
         </div>
@@ -205,14 +199,14 @@
     </a>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./HomepageContent/vendor/jquery/jquery.min.js"></script>
+    <script src="./HomepageContent/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="./HomepageContent/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/stylish-portfolio.min.js"></script>
+    <script src="./HomepageContent/js/stylish-portfolio.min.js"></script>
 
 
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
