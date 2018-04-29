@@ -64,7 +64,7 @@ public class SoccerController extends HttpServlet {
             while( rs.next() ) {
                 soccer_events.add( new SportEntry( rs.getInt( "id" ),
                     rs.getString( "city" ), rs.getString( "title" ), rs.getDate("date_post"),
-                    rs.getString("date_event"), rs.getString("user_name"), rs.getInt("number_players"), rs.getInt("age_requierment"), rs.getString("event_time"), rs.getString("description"), rs.getInt("zipcode"), rs.getString("address")));
+                    rs.getString("date_event"), rs.getString("user_name"), rs.getInt("number_players"), rs.getString("age_requierment"), rs.getString("event_time"), rs.getString("description"), rs.getInt("zipcode"), rs.getString("address")));
             }
             
             

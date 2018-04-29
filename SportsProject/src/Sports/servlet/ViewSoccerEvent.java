@@ -72,7 +72,7 @@ public class ViewSoccerEvent extends HttpServlet {
             	 	String date_event = rs.getString("date_event");
             	 	String user_name = rs.getString("user_name");
             	 	Integer number_players = rs.getInt("number_players");
-            	 	Integer age_requierment = rs.getInt("age_requierment");
+            	 	String age_requierment = rs.getString("age_requierment");
             	 	String event_time = rs.getString("event_time");
             	 	String description = rs.getString("description");
             	 	String address = rs.getString("address");

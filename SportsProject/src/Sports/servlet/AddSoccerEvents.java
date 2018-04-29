@@ -66,7 +66,7 @@ public class AddSoccerEvents extends HttpServlet {
             pstmt.setString(3, request.getParameter("soccerDate"));
             pstmt.setString(4, request.getParameter("soccerName"));
             pstmt.setInt(5, Integer.parseInt(request.getParameter("numberOfSoccerPlayers")));
-            pstmt.setInt(6, Integer.parseInt(request.getParameter("ageLimitSoccer")));
+            pstmt.setString(6, request.getParameter("ageLimitSoccer"));
             pstmt.setString(7, request.getParameter("event_time"));
             pstmt.setString(8, request.getParameter("soccerDescription"));
             pstmt.setInt(9, Integer.parseInt(request.getParameter("zipCode")));

@@ -77,7 +77,7 @@ public class EditSoccer extends HttpServlet {
             	 	String date_event = rs.getString("date_event");
             	 	String user_name = rs.getString("user_name");
             	 	Integer number_players = rs.getInt("number_players");
-            	 	Integer age_requierment = rs.getInt("age_requierment");
+            	 	String age_requierment = rs.getString("age_requierment");
             	 	String event_time = rs.getString("event_time");
             	 	String description = rs.getString("description");
             	 	String address = rs.getString("address");
@@ -135,7 +135,7 @@ public class EditSoccer extends HttpServlet {
 		 String user_name = request.getParameter("soccerName");
 		 
 		 Integer number_players = Integer.parseInt(request.getParameter("numberOfSoccerPlayers")); 
-		 Integer age_requierment = Integer.parseInt(request.getParameter("ageLimitSoccer"));
+		 String age_requierment = request.getParameter("ageLimitSoccer");
 		 
 		 Integer zipcode = Integer.parseInt(request.getParameter("zipcode")); 
 		 
@@ -168,7 +168,7 @@ public class EditSoccer extends HttpServlet {
             pstmt.setString(2, title);
             pstmt.setString(3, date_event);
             pstmt.setInt(4, number_players);
-            pstmt.setInt(5, age_requierment);
+            pstmt.setString(5, age_requierment);
             pstmt.setString(6, description);
             pstmt.setString(7, address);
             pstmt.setInt(8, zipcode);

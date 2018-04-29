@@ -66,7 +66,7 @@ th, td {
 		<tr><td>Date of Event: <td><input type="text" name="dateofEvent" value="${entry.date_event}"/></td></td></tr>
 		<tr><td>Title: <td><input type="text" name="title" value="${entry.title}"/></td></td></tr>
 		<tr><td>Number of Players: <td><input type="text" name="numberOfSoccerPlayers" value="${entry.number_players}"/></td></td></tr>
-		<tr><td>Age Requierment: <td><input type="text" name="ageLimitSoccer" value="${entry.age_requiement}"/></td></td></tr>
+		<tr><td>Age Requirement: <td><input type="text" name="ageLimitSoccer" value="${entry.age_requirement}"/></td></td></tr>
 		<tr><td>Description: <td><input type="text" name="soccerDescription" value="${entry.description}"/></td></td></tr>
 		<tr><td>Address: <td><input type="text" name="parkAddress" value="${entry.addresss}"/></td></td></tr>
 		

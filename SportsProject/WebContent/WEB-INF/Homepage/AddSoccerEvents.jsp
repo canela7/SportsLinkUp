@@ -52,7 +52,7 @@
 <div class="w3-row w3-section">
     <div class="w3-col" style="width:50px"><i class="fa fa-address-card" style="font-size:36px"></i></div>
       <div class="w3-rest">
-        <input class="w3-input w3-border" name="ageLimitSoccer" type="text" placeholder="Age Requierment (i.e 14-17, 18-above...)">
+        <input class="w3-input w3-border" name="ageLimitSoccer" type="text" placeholder="Age Requirement (i.e 14-17, 18-above...)">
       </div>
 </div>
 
@@ -111,17 +111,12 @@
     </div>
 </div>
 
+	<p class="w3-center">			
+		<input class="w3-button w3-section w3-blue w3-ripple" type="submit" name="post" value="Post"/>
+		</p>	
 
 
 
-
-
-<p class="w3-center">
-<button class="w3-button w3-section w3-blue w3-ripple"><input type="submit" name="post" value="Post" />Post </button>
-
-
-
-</p>
 
 </div>
 </form>

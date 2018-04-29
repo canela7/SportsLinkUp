@@ -13,20 +13,20 @@ public class SportEntry {
 	private String date_event;
 	private String user_name;
 	private Integer number_players; 
-	private Integer age_requiement;
+	
+//	private Integer age_requiement;
+	
+	private String age_requirement;
+	
 	private String event_time;
 	private String description;
 	private Integer zipcode;
 	private String addresss;
 	
-	
-	
-	
 
-	
 
 	public SportEntry(Integer id, String city, String title, Date date_post, String date_event, String user_name,
-			Integer number_players, Integer age_requiement, String event_time, String description, Integer zipcode,
+			Integer number_players, String age_requirement, String event_time, String description, Integer zipcode,
 			String addresss) {
 		super();
 		this.id = id;
@@ -36,11 +36,19 @@ public class SportEntry {
 		this.date_event = date_event;
 		this.user_name = user_name;
 		this.number_players = number_players;
-		this.age_requiement = age_requiement;
+		this.age_requirement = age_requirement;
 		this.event_time = event_time;
 		this.description = description;
 		this.zipcode = zipcode;
 		this.addresss = addresss;
+	}
+
+	public String getAge_requirement() {
+		return age_requirement;
+	}
+
+	public void setAge_requirement(String age_requirement) {
+		this.age_requirement = age_requirement;
 	}
 
 	public Integer getZipcode() {
@@ -107,13 +115,7 @@ public class SportEntry {
 		this.number_players = number_players;
 	}
 	
-	public Integer getAge_requiement() {
-		return age_requiement;
-	}
-	
-	public void setAge_requiement(Integer age_requiement) {
-		this.age_requiement = age_requiement;
-	}
+
 	
 	public String getEvent_time() {
 		return event_time;
