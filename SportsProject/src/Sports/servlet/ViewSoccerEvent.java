@@ -66,6 +66,7 @@ public class ViewSoccerEvent extends HttpServlet {
             if(rs.next()) {
             	 	
             	 	String city = rs.getString("city");
+            		
                  String title = rs.getString("title");
             		Date date_post = rs.getDate("date_post"); 
             	 	String date_event = rs.getString("date_event");
@@ -78,7 +79,7 @@ public class ViewSoccerEvent extends HttpServlet {
             	 	Integer zipcode = rs.getInt("zipcode");
             		
             	
-            	 	SportEntry entry = new SportEntry(id, city, title, date_post, date_event, user_name, number_players, age_requierment, event_time, description, zipcode,address);
+            	 	SportEntry entry = new SportEntry(id, city,title, date_post, date_event, user_name, number_players, age_requierment, event_time, description, zipcode,address);
             		request.setAttribute("entry", entry);
             }
             

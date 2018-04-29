@@ -74,6 +74,13 @@
     background: #666;
     color: #FFF;
   }
+  
+  .textColor{
+	color: red;
+}
+  
+  
+  
 </style>
 
 <body>
@@ -140,22 +147,24 @@
       
       <h4 class="w3-wide">Search:
         <input text="text" name="query" placeHolder="Search City">
-        <input type="submit" value="Search">
       </h4>
+      
       
       
       <table class="d" align="center">
         <thead>
-        <tr><th>Title</th><th>Date of Post</th><th>Date of Event</th><th>View Event</th><th>Edit Event</th></tr>
+        <tr><th>Title</th><th>City</th><th>Date of Post</th><th>Date of Event</th><th>View Event</th><th>Edit Event</th><th>Delete</th></tr>
         </thead>
         <tbody>
       		 <c:forEach items="${soccer_events}" var="entry"> 
 				<tr>
 					<td>${entry.title}</td>
-					<td>${entry.date_post}</td>
+					<td>${entry.city}</td>
+					<td><fmt:formatDate value="${entry.date_post}"  type="date" pattern="M/d/yyyy"/></td>
 					<td>${entry.date_event}</td>
 					<td><a href="ViewSoccerEvent?id=${entry.id}">View Event</a></td>
 					<td><a href="EditSoccer?id=${entry.id}">Edit</a></td>
+					<td><a class="textColor" href="Delete?id=${entry.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
         </tbody>

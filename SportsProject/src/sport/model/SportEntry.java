@@ -7,6 +7,7 @@ public class SportEntry {
 	
 	private Integer id;
 	private String city;
+
 	private String title;
 	private Date date_post;
 	private String date_event;
@@ -21,6 +22,9 @@ public class SportEntry {
 	
 	
 	
+
+	
+
 	public SportEntry(Integer id, String city, String title, Date date_post, String date_event, String user_name,
 			Integer number_players, Integer age_requiement, String event_time, String description, Integer zipcode,
 			String addresss) {
@@ -38,7 +42,6 @@ public class SportEntry {
 		this.zipcode = zipcode;
 		this.addresss = addresss;
 	}
-	
 
 	public Integer getZipcode() {
 		return zipcode;
