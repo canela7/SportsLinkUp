@@ -1,8 +1,8 @@
 package cs3337;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletConfig;
+//import javax.servlet.RequestDispatcher;
+//import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,18 +20,10 @@ public class HomepageController extends HttpServlet {
         super();
     }
 
-    public void init( ServletConfig config ) throws ServletException
-    {
-        super.init( config );
-
-        
-    }
-
     protected void doGet( HttpServletRequest request,
         HttpServletResponse response ) throws ServletException, IOException
     {
-        RequestDispatcher dispatcher = request.getRequestDispatcher( "/WEB-INF/Homepage/index.jsp" );
-        dispatcher.forward( request, response );
+    	request.getRequestDispatcher("/WEB-INF/Homepage/index.jsp").forward(request, response);
     }
 
     protected void doPost( HttpServletRequest request,
