@@ -32,7 +32,7 @@ values ('Los Angels, CA','For parents who want their kid to be apart of a soccer
 insert into matches (city, title, date_post, date_event, user_name,number_players,age_requierment,event_time,description,zipcode, address) 
 values ('Boston, MA', 'We need 3 soccer players for our soccer team',  now(),  '05/12/2018', 'James ', 3,  '19-23',  '11:00am-2:00pm',  'My team is in need of of two defenders and a midfielder for our soccer team. Must be the ages from 19-22. Its urgent or else we will get disqualified from the league with less than a the minimum of requiered players. Please contact me (323) 210-XXXX. Its okay if you are no good, but just want to have fun. There is no pressure. The main point is that we need 3 players to be able to play. ', 02121, ' Ceylon Park 105 Ceylon St');
 
-
+insert into sports_users (name, password) values ('admin@gmail.com', 'abcd');
 
 
 
