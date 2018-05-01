@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/editFootballEvent")
-public class EditFootballEvent extends HttpServlet {
+@WebServlet("/editSoccerEvent")
+public class EditSoccerEvent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public EditFootballEvent() {
+	public EditSoccerEvent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -38,7 +38,7 @@ public class EditFootballEvent extends HttpServlet {
 			String password = "3G7!PR7E";
 
 			// sql to get the specific entry
-			String sql = "select * from football_Matches where id=" + (id);
+			String sql = "select * from matches where id=" + (id);
 
 			c = DriverManager.getConnection(url, username, password);
 			Statement stmt = c.createStatement();
@@ -85,7 +85,7 @@ public class EditFootballEvent extends HttpServlet {
 
 		// request.setAttribute("entry", entry);
 		// request.setAttribute("user", userName);
-		request.getRequestDispatcher("/WEB-INF/Homepage/editEvents/editFootballEvent.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Homepage/editEvents/editSoccerEvent.jsp").forward(request, response);
 
 	}
 
@@ -100,8 +100,8 @@ public class EditFootballEvent extends HttpServlet {
 
 		String user_name = request.getParameter("name");
 
-		Integer number_players = Integer.parseInt(request.getParameter("players"));
-		Integer age_requirement = Integer.parseInt(request.getParameter("ageLimit"));
+		String number_players = request.getParameter("players");
+		String age_requirement = request.getParameter("ageLimit");
 
 		String date_event = request.getParameter("date_event");
 
@@ -122,7 +122,7 @@ public class EditFootballEvent extends HttpServlet {
 			String password = "3G7!PR7E";
 
 			// sql to update after the edit save button
-			String sql = "update football_Matches set user_name=?, city=?, title=?, date_post=?, number_players=?, age_requirement=?, date_event=?, event_time=?, description=?, address=? where id=?";
+			String sql = "update matches set user_name=?, city=?, title=?, date_post=?, number_players=?, age_requirement=?, date_event=?, event_time=?, description=?, address=? where id=?";
 
 			c = DriverManager.getConnection(url, username, password);
 
@@ -133,8 +133,8 @@ public class EditFootballEvent extends HttpServlet {
 			pstmt.setString(2, city);
 			pstmt.setString(3, title);
 			pstmt.setString(4, date_post);
-			pstmt.setInt(5, number_players);
-			pstmt.setInt(6, age_requirement);
+			pstmt.setString(5, number_players);
+			pstmt.setString(6, age_requirement);
 			pstmt.setString(7, date_event);
 			pstmt.setString(8, event_time);
 			pstmt.setString(9, description);
@@ -159,7 +159,7 @@ public class EditFootballEvent extends HttpServlet {
 		}
 
 		// send user back to departmentlibrary display
-		response.sendRedirect("Football");
+		response.sendRedirect("Soccer");
 
 	}
 

@@ -9,8 +9,8 @@ public class EventData {
 	private Date date_post;
 	private String date_event;
 	private String user_name;
-	private Integer number_players; 
-	private Integer age_requirement;
+	private String number_players; 
+	private String age_requirement;
 	private String event_time;
 	private String description;
 	private String address;
@@ -18,7 +18,7 @@ public class EventData {
 	
 
 	public EventData(Integer id, String city, String title, Date date_post, String date_event, String user_name,
-			Integer number_players, Integer age_requirement, String event_time, String description, String address) {
+			String number_players, String age_requierment, String event_time, String description, String address) {
 		super();
 		this.id = id;
 		this.city = city;
@@ -27,7 +27,7 @@ public class EventData {
 		this.date_event = date_event;
 		this.user_name = user_name;
 		this.number_players = number_players;
-		this.age_requirement = age_requirement;
+		this.age_requirement = age_requierment;
 		this.event_time = event_time;
 		this.description = description;
 		this.address = address;
@@ -81,19 +81,19 @@ public class EventData {
 		this.user_name = user_name;
 	}
 	
-	public Integer getNumber_players() {
+	public String getNumber_players() {
 		return number_players;
 	}
 	
-	public void setNumber_players(Integer number_players) {
+	public void setNumber_players(String number_players) {
 		this.number_players = number_players;
 	}
 	
-	public Integer getAge_requirement() {
+	public String getAge_requirement() {
 		return age_requirement;
 	}
 	
-	public void setAge_requiement(Integer age_requirement) {
+	public void setAge_requiement(String age_requirement) {
 		this.age_requirement = age_requirement;
 	}
 	

@@ -17,11 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ViewSoccerEvent
  */
-@WebServlet("/viewBasketballEvent")
-public class ViewBasketballEvent extends HttpServlet {
+@WebServlet("/viewCricketEvent")
+public class ViewCricketEvent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ViewBasketballEvent() {
+	public ViewCricketEvent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -50,7 +50,7 @@ public class ViewBasketballEvent extends HttpServlet {
 			String password = "3G7!PR7E";
 
 			// sql to get the specific entry
-			String sql = "select * from basketball_Matches where id=" + (id);
+			String sql = "select * from cricket_Matches where id=" + (id);
 
 			c = DriverManager.getConnection(url, username, password);
 			Statement stmt = c.createStatement();
@@ -93,7 +93,7 @@ public class ViewBasketballEvent extends HttpServlet {
 			}
 		}
 
-		request.getRequestDispatcher("/WEB-INF/Homepage/viewEvents/viewBasketballEvent.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Homepage/viewEvents/viewCricketEvent.jsp").forward(request, response);
 
 	}
 
@@ -103,7 +103,7 @@ public class ViewBasketballEvent extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect("Basketball");
+		response.sendRedirect("Cricket");
 	}
 
 }
