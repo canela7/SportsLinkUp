@@ -11,11 +11,11 @@
 <title>Football Events</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Bootstrap Core CSS -->
+	<!-- Bootstrap Core CSS -->
 <link href="./HomepageContent/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 
-<!-- Custom Fonts -->
+	<!-- Custom Fonts -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -29,8 +29,6 @@
 <link
 	href="./HomepageContent/vendor/simple-line-icons/css/simple-line-icons.css"
 	rel="stylesheet">
-
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -38,7 +36,7 @@
 	rel="stylesheet">
 
 
-<!-- Custom CSS -->
+	<!-- Custom CSS -->
 <link rel="stylesheet" type="text/css"
 	href="./HomepageContent/css/stylish-portfolio.css" />
 <style>
@@ -133,7 +131,7 @@ table.tableSection th {
 }
 
 table.tableSection td {
-	width: 15%;
+	width: 10%;
 }
 </style>
 </head>
@@ -187,112 +185,193 @@ table.tableSection td {
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Chicago</h3>
       <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
-    </div> -->
-	</div>
+    </div> 
+	</div> -->
 
 
 
-	<!-- The Band Section -->
-	<div class="w3-container w3-content w3-center w3-padding-64"
-		style="max-width: 100%" id="app">
+		<!-- The Band Section -->
+		<div class="w3-container w3-content w3-center w3-padding-64"
+			style="max-width: 75%" id="app">
 
-		<h2 class="w3-wide">Current Football Events</h2>
-		<p class="w3-opacity">
-			<i>Play Football</i>
-		</p>
-		<h4 class="w3-wide">
-			Search: <input type="text" name="query" placeHolder="Search City"><input
-				type="submit" value="Search">
-		</h4>
+			<h2 class="w3-wide">Current Football Events</h2>
+			<p class="w3-opacity">
+				<i>Play Football</i>
+			</p>
+			<form action="Football">
+				<h4 class="w3-wide">
+					Search: <input type="text" name="query"
+						placeHolder="Search City or Title"><input type="submit"
+						value="Search">
+				</h4>
+			</form>
 
-		<c:choose>
-			<c:when test="${not empty sessionScope.user}">
-				<table class="tableSection">
-					<thead>
-						<tr>
-							<th>Title</th>
-							<th>City</th>
-							<th>Date of Post</th>
-							<th>Date of Event</th>
-							<th>View Event</th>
-							<th>Edit Event</th>
-							<th>Delete Event</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${football_events}" var="entry">
-							<!--  u get the entries from guestbook.java -->
+			<c:set var="userSearch" value="${param.query}" />
+			<c:set var="userSearchModified" value="${fn:toLowerCase(userSearch)}" />
+			<!-- <c:out value="${userSearchModified}" /> -->
+
+			<c:choose>
+				<c:when test="${userSearch != null && empty sessionScope.user}">
+					<table class="tableSection">
+						<thead>
 							<tr>
-								<td>${entry.title}</td>
-								<td>${entry.city}</td>
-								<td>${entry.date_post}</td>
-								<td>${entry.date_event}</td>
-								<td><a href="viewFootballEvent?id=${entry.id}">View
-										Event</a></td>
-								<td><a href="editFootballEvent?id=${entry.id}">Edit
-										Event</a></td>
-								<td><a class="textColor"
-									href="DeleteFootball?id=${entry.id}">Delete Event</a></td>
+								<th>Title</th>
+								<th>City</th>
+								<th>Date of Post</th>
+								<th>Date of Event</th>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
 
-				<br>
-				<h1>Link Up!</h1>
-				<a href="addFootballEvent" class="button">Create Basketball Link
-					Up</a>
-				<p class="button">
-					<a class="link" href='Logout'>Logout</a>
-				</p>
+							<c:forEach items="${football_events}" var="entry">
+								<c:set var="cityName" value="${entry.city}" />
+								<c:set var="cityNameModified"
+									value="${fn:toLowerCase(cityName)}" />
+								<c:set var="titleName" value="${entry.title}" />
+								<c:set var="titleNameModified"
+									value="${fn:toLowerCase(titleName)}" />
 
-			</c:when>
-			<c:otherwise>
-				<table class="tableSection">
-					<thead>
-						<tr>
-							<th>Title</th>
-							<th>City</th>
-							<th>Date of Post</th>
-							<th>Date of Event</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${football_events}" var="entry">
-							<!--  u get the entries from guestbook.java -->
+								<c:if
+									test="${fn:contains(cityNameModified, userSearchModified) || fn:contains(titleNameModified, userSearchModified)}">
+									<tr>
+										<td>${entry.title}</td>
+										<td>${entry.city}</td>
+										<td>${entry.date_post}</td>
+										<td>${entry.date_event}</td>
+									</tr>
+								</c:if>
+							</c:forEach>
+						</tbody>
+					</table>
+					<strong>Login now to Link Up!</strong>
+					<p>
+						<a href='Login' class="button">Login</a>
+					</p>
+				</c:when>
+
+				<c:when test="${userSearch != null && not empty sessionScope.user}">
+					<table class="tableSection">
+						<thead>
 							<tr>
-								<td>${entry.title}</td>
-								<td>${entry.city}</td>
-								<td>${entry.date_post}</td>
-								<td>${entry.date_event}</td>
+								<th>Title</th>
+								<th>City</th>
+								<th>Date of Post</th>
+								<th>Date of Event</th>
+								<th>View Event</th>
+								<th>Edit Event</th>
+								<th>Delete Event</th>
 							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-				<br>
-				<strong>Login now to Link Up!</strong>
-				<p>
-					<a href="Login" class="button">Login</a>
-				</p>
-			</c:otherwise>
-		</c:choose>
+						</thead>
+						<tbody>
+
+							<c:forEach items="${football_events}" var="entry">
+								<c:set var="cityName" value="${entry.city}" />
+								<c:set var="cityNameModified"
+									value="${fn:toLowerCase(cityName)}" />
+								<c:set var="titleName" value="${entry.title}" />
+								<c:set var="titleNameModified"
+									value="${fn:toLowerCase(titleName)}" />
+
+								<c:if
+									test="${fn:contains(cityNameModified, userSearchModified) || fn:contains(titleNameModified, userSearchModified)}">
+									<tr>
+										<td>${entry.title}</td>
+										<td>${entry.city}</td>
+										<td>${entry.date_post}</td>
+										<td>${entry.date_event}</td>
+										<td><a href="viewFootballEvent?id=${entry.id}">View
+												Event</a></td>
+										<td><a href="editFootballEvent?id=${entry.id}">Edit
+												Event</a></td>
+										<td><a class="textColor"
+											href="DeleteFootball?id=${entry.id}">Delete Event</a></td>
+									</tr>
+								</c:if>
+							</c:forEach>
+						</tbody>
+					</table>
+					<br>
+					<h1>Link Up!</h1>
+					<a href="addFootballEvent" class="button">Create Football Link Up</a>
+					<p class="button">
+						<a class="link" href='Logout'>Logout</a>
+					</p>
+				</c:when>
+
+				<c:when test="${not empty sessionScope.user}">
+					<table class="tableSection">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>City</th>
+								<th>Date of Post</th>
+								<th>Date of Event</th>
+								<th>View Event</th>
+								<th>Edit Event</th>
+								<th>Delete Event</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${football_events}" var="entry">
+								<!--  u get the entries from guestbook.java -->
+								<tr>
+									<td>${entry.title}</td>
+									<td>${entry.city}</td>
+									<td>${entry.date_post}</td>
+									<td>${entry.date_event}</td>
+									<td><a href="viewFootballEvent?id=${entry.id}">View
+											Event</a></td>
+									<td><a href="editFootballEvent?id=${entry.id}">Edit
+											Event</a></td>
+									<td><a class="textColor"
+										href="DeleteFootball?id=${entry.id}">Delete Event</a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					<br>
+					<h1>Link Up!</h1>
+					<a href="addFootballEvent" class="button">Create Football Link Up</a>
+					<p class="button">
+						<a class="link" href='Logout'>Logout</a>
+					</p>
+				</c:when>
+
+				<c:otherwise>
+					<table class="tableSection">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>City</th>
+								<th>Date of Post</th>
+								<th>Date of Event</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${football_events}" var="entry">
+								<!--  u get the entries from guestbook.java -->
+								<tr>
+									<td>${entry.title}</td>
+									<td>${entry.city}</td>
+									<td>${entry.date_post}</td>
+									<td>${entry.date_event}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+					<br>
+					<strong>Login now to Link Up!</strong>
+					<p>
+						<a href='Login' class="button">Login</a>
+					</p>
+				</c:otherwise>
+			</c:choose>
+		</div>
+
+		<a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+			<i class="fa fa-angle-up"></i>
+		</a>
 	</div>
-
-	<a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
-        <i class="fa fa-angle-up"></i>
-    </a>
-
-	<!-- Map 
-	<section id="contact" class="map">
-		<iframe width="100%" height="100%" frameborder="0" scrolling="no"
-			marginheight="0" marginwidth="0"
-			src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-		<br /> <small> <a
-			href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-		</small>
-	</section> -->
-	<!-- End Page Content -->
-
 
 	<script>
 		// Automatic Slideshow - change image every 4 seconds
@@ -343,7 +422,7 @@ table.tableSection td {
 
 
 	<script defer
-		src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>	
+		src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
