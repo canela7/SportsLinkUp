@@ -1,4 +1,4 @@
-package cs3337;
+package cs3337.view;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -14,14 +14,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cs3337.data.EventData;
+
 /**
  * Servlet implementation class ViewSoccerEvent
  */
-@WebServlet("/viewFootballEvent")
-public class ViewFootballEvent extends HttpServlet {
+@WebServlet("/viewBasketballEvent")
+public class ViewBasketballEvent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ViewFootballEvent() {
+	public ViewBasketballEvent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -50,7 +52,7 @@ public class ViewFootballEvent extends HttpServlet {
 			String password = "3G7!PR7E";
 
 			// sql to get the specific entry
-			String sql = "select * from football_Matches where id=" + (id);
+			String sql = "select * from basketball_Matches where id=" + (id);
 
 			c = DriverManager.getConnection(url, username, password);
 			Statement stmt = c.createStatement();
@@ -93,7 +95,7 @@ public class ViewFootballEvent extends HttpServlet {
 			}
 		}
 
-		request.getRequestDispatcher("/WEB-INF/Homepage/viewEvents/viewFootballEvent.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Homepage/viewEvents/viewBasketballEvent.jsp").forward(request, response);
 
 	}
 
@@ -103,7 +105,7 @@ public class ViewFootballEvent extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.sendRedirect("Football");
+		response.sendRedirect("Basketball");
 	}
 
 }

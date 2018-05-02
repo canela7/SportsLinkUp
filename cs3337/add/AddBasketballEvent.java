@@ -1,4 +1,4 @@
-package cs3337;
+package cs3337.add;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,15 +12,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AddEvents
+ * Servlet implementation class AddBasketballEvent
  */
-@WebServlet("/addSoccerEvent")
-public class AddSoccerEvent extends HttpServlet {
+@WebServlet("/addBasketballEvent")
+public class AddBasketballEvent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	int idSeed = 1;
 
-    public AddSoccerEvent() {
+    public AddBasketballEvent() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,35 +29,11 @@ public class AddSoccerEvent extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		request.getRequestDispatcher( "/WEB-INF/Homepage/addEvents/addSoccerEvent.jsp" ).forward( request, response );
+		request.getRequestDispatcher( "/WEB-INF/Homepage/addEvents/addBasketballEvent.jsp" ).forward( request, response );
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//List<DepartmentLibraryEntry> entries = (List<DepartmentLibraryEntry>) getServletContext().getAttribute("entries");
-		
-		 //Integer id;
-		/* String city = request.getParameter("cityState"); //
-		 
-		 String title = request.getParameter("title"); //
-//		 Date date_post;
-		 
-		 String date_event = request.getParameter("soccerDate");
-		 
-		 String user_name = request.getParameter("soccerName");//
-		 
-		 Integer number_players = Integer.parseInt(request.getParameter("numberOfSoccerPlayers")); //
-		 Integer age_requierment = Integer.parseInt(request.getParameter("ageLimitSoccer"));//
-		 
-		 String event_time = request.getParameter("event_time");
-		 
-		 String description = request.getParameter("soccerDescription");//
-		 
-		 String address = request.getParameter("parkAddress");//*/
-		 
-		
-	
 		
 		Connection c = null;
         try
@@ -66,7 +42,7 @@ public class AddSoccerEvent extends HttpServlet {
             String username = "cs3337stu06";
             String password = "3G7!PR7E";
 
-            String sql = "insert into matches (city, title, date_post, date_event, user_name, number_players, age_requirement, event_time, description, address) values (?,?, now(), ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into basketball_Matches (city, title, date_post, date_event, user_name, number_players, age_requirement, event_time, description, address) values (?,?, now(), ?, ?, ?, ?, ?, ?, ?)";
          	 
        
             c = DriverManager.getConnection( url, username, password );
@@ -109,7 +85,7 @@ public class AddSoccerEvent extends HttpServlet {
             }
         }
 
-		response.sendRedirect("Soccer");
+		response.sendRedirect("Basketball");
 		
 		
 	}

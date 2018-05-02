@@ -38,17 +38,27 @@
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">SportsLinkUp</a>
+          	<a class="js-scroll-trigger" href="#page-top">SportsLinkUp</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+          	<a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
         </li>
         <li class="sidebar-nav-item">
             <a class="js-scroll-trigger" href="#services">Services</a>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#contact">Contact</a>
+          	<a class="js-scroll-trigger" href="#contact">Contact</a>
         </li>
+        <c:if test="${not empty sessionScope.user}">
+        <li class="sidebar-nav-item">
+        	<a class="js-scroll-trigger" href="Logout">Logout</a>
+        </li>
+        </c:if>
+        <c:if test="${empty sessionScope.user}">
+        <li class="sidebar-nav-item">
+        	<a class="js-scroll-trigger" href="Login">Login</a>
+        </li>
+        </c:if>
       </ul>
     </nav>
 
@@ -159,7 +169,7 @@
               <i class="fas fa-football-ball"></i>
             </span>
             <h4>
-              <strong>View Top Favorite Sports</strong>
+              <strong>View Your Favorite Sports</strong>
             </h4>
             <p class="text-faded mb-0"></p>
           </div>
@@ -168,7 +178,7 @@
               <i class="fas fa-baseball-ball"></i>
             </span>
             <h4>
-              <strong>Meeting New Potential Friends Who Share A Common Interest</strong>
+              <strong>Meeting New Potential Friends Who Share a Common Interest</strong>
             </h4>
             <p class="text-faded mb-0"></p>
           </div>

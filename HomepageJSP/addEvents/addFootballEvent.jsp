@@ -113,29 +113,28 @@
 
 
             <!--Time Description-->
-            <div class="w3-row w3-section">
-                <div class="w3-col" style="width: 50px">
-                    <i class="fas fa-clock" style="font-size: 36px"></i>
-                </div>
-                <div class="w3-rest">
-                    <div>
-                        <label for="party">Date of Event:</label> <input id="party"
-                            type="datetime-local" name="date" min="2018-05-01T08:30"
-                            max="2020-06-30T18:30" placeholder="YYYY-MM-DD" required><span class="validity"></span>
-                    </div>
-                </div>
-            </div>
+			<div class="w3-row w3-section">
+				<div class="w3-col" style="width: 50px">
+					<i class="fas fa-clock" style="font-size: 36px"></i>
+				</div>
+				<div class="w3-rest">
+					<div>
+						<label for="party">Date of Event:</label> <input id="party"
+							type="text" name="date" placeholder="YYYY-MM-DD"
+							required><span class="validity"></span>
+					</div>
+				</div>
+			</div>
 
-            <div class="w3-row w3-section">
-                <div class="w3-rest">
-                    <div>
-                        <label for="party">Time (required times only 7:00am -
-                            7:00pm):</label> <input id="party" type="datetime-local" name="time"
-                            min="2018-05-01T07:00" max="2999-12-30T19:00" required><span
-                            class="validity"></span>
-                    </div>
-                </div>
-            </div>
+			<div class="w3-row w3-section">
+				<div class="w3-rest">
+					<div>
+						<label for="party">Time (required times only 7:00am -
+							7:00pm):</label> <input id="party" type="text" name="time"
+							required placeholder="7:00am - 7:00pm"><span class="validity"></span>
+					</div>
+				</div>
+			</div>
 
             <div class="w3-row w3-section">
                 <div class="w3-col" style="width: 50px">

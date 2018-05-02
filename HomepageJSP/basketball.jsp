@@ -11,16 +11,36 @@
 <title>Basketball Events</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap Core CSS -->
+<link href="./HomepageContent/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<link
+	href="./HomepageContent/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css">
+<link
+	href="./HomepageContent/vendor/simple-line-icons/css/simple-line-icons.css"
+	rel="stylesheet">
+
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="./HomepageContent/css/styles.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
+
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css"
+	href="./HomepageContent/css/stylish-portfolio.css" />
 <style>
 body {
 	font-family: "Lato", sans-serif
@@ -67,6 +87,7 @@ th {
 	font-weight: bold;
 	height: 70px;
 	width: 500px;
+	text-align: center;
 }
 
 td {
@@ -80,9 +101,43 @@ tr td:hover {
 	background: #666;
 	color: #FFF;
 }
+
+tr th:hover {
+	background: #666;
+	color: #FFF;
+}
+
+table.tableSection {
+	display: table;
+	width: 100%;
+}
+
+table.tableSection thead, table.tableSection tbody {
+	float: left;
+	width: 100%;
+}
+
+table.tableSection tbody {
+	overflow: auto;
+	height: 333px;
+}
+
+table.tableSection tr {
+	width: 100%;
+	display: table;
+	text-align: left;
+}
+
+table.tableSection th {
+	width: 10%;
+}
+
+table.tableSection td {
+	width: 15%;
+}
 </style>
 </head>
-<body>
+<body id="page-top">
 
 
 	<!-- Navbar -->
@@ -106,7 +161,7 @@ tr td:hover {
 	</div>
 
 	<!-- Page content -->
-	<div class="w3-content" style="max-width: 2000px; margin-top: 46px">
+	<div class="w3-content" style="max-width: 100%; margin-top: 46px">
 
 		<!-- Automatic Slideshow Images -->
 		<div class="mySlides w3-display-container w3-center">
@@ -135,8 +190,22 @@ tr td:hover {
     </div> -->
 	</div>
 
-    <!-- String searchData = request.getParameter("query");
+	<!-- The Band Section -->
+	<div class="w3-container w3-content w3-center w3-padding-64"
+		style="max-width: 100%" id="app">
 
+		<h2 class="w3-wide">Current Basketball Events</h2>
+		<p class="w3-opacity">
+			<i>Play Basketball</i>
+		</p>
+		<h4 class="w3-wide">
+			Search: <input type="text" name="query" placeHolder="Search City"><input
+				type="submit" value="Search">
+		</h4>
+		<c:set var="userSearch" value="${query}" />
+		<c:out value="${query}" />
+
+		<!-- String searchData = request.getParameter("query");
         if (searchData != null) {
             String data = searchData.toLowerCase();
             for (GuestBookEntry entry : entries) {
@@ -163,89 +232,86 @@ tr td:hover {
                 out.println("<a href=\"DeleteEntry?id=" + entry.getId() + "\">Delete</a></td>");
                 out.println("</tr>");
             }
-        } --> 
+        } -->
 
-	<!-- The Band Section -->
-	<div class="w3-container w3-content w3-center w3-padding-64"
-		style="max-width: 800px" id="app">
+		<c:choose>
+			<c:when test="${not empty sessionScope.user}">
+				<table class="tableSection">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>City</th>
+							<th>Date of Post</th>
+							<th>Date of Event</th>
+							<th>View Event</th>
+							<th>Edit Event</th>
+							<th>Delete Event</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${basketball_events}" var="entry">
+							<!--  u get the entries from guestbook.java -->
+							<tr>
+								<td>${entry.title}</td>
+								<td>${entry.city}</td>
+								<td>${entry.date_post}</td>
+								<td>${entry.date_event}</td>
+								<td><a href="viewBasketballEvent?id=${entry.id}">View
+										Event</a></td>
+								<td><a href="editBasketballEvent?id=${entry.id}">Edit
+										Event</a></td>
+								<td><a class="textColor"
+									href="DeleteBasketball?id=${entry.id}">Delete Event</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 
-		<h2 class="w3-wide">Current Basketball Events</h2>
-		<p class="w3-opacity">
-			<i>Play Basketball</i>
-		</p>
-		<h4 class="w3-wide">
-			Search: <input text="text" name="query" placeHolder="Search City"><input
-				type="submit" value="Search">
-		</h4>
-		<%--   <table class="d" align="center">
-      <thead>
-        <tr>
-          <th>City</th>
-          <th>Title</th>
-          <th>Date of Post</th>
-          <th>Date of Event</th>
-          <th>Votes</th>
-          <th>View Event</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="events in sortedEvents">
-          <td>{{events.city}}</td>
-          <td>{{events.description}}</td>
-          <td>{{events.startdate}}</td>
-          <td>{{events.enddate}}</td>
-          <td>
-            <span class="icon is-small" @click="upvote(events.id)">
-              <i class="fa fa-chevron-up"></i>
-            </span>
-            <span class="icon is-small" @click="downvote(events.id)">
-              <i class="fa fa-chevron-down"></i>
-              <strong class="has-text-info">{{events.votes}}</strong>
-            </span>
-          </td>
-          <td>
-            <a href=#> View Event </a>
-          </td>
-        </tr>
-      </tbody>
-    </table> --%>
+				<br>
+				<h1>Link Up!</h1>
+				<a href="addBasketballEvent" class="button">Create Basketball
+					Link Up</a>
+				<p class="button">
+					<a class="link" href='Logout'>Logout</a>
+				</p>
 
-		<table class="d" align="center">
-			<thead>
-				<tr>
-					<th>Title</th>
-					<th>Date of Post</th>
-					<th>Date of Event</th>
-					<th>View Event</th>
-					<th>Edit Event</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${basketball_events}" var="entry">
-					<!--  u get the entries from guestbook.java -->
-					<tr>
-						<td>${entry.title}</td>
-						<td>${entry.date_post}</td>
-						<td>${entry.date_event}</td>
-						<td><a href="viewBasketballEvent?id=${entry.id}">View Event</a></td>
-
-
-						<td><a href="editBasketballEvent?id=${entry.id}">Edit</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-
-		<h1>Link Up!</h1>
-		<a href="addBasketballEvent" class="button">Create Basketball Event</a>
-
+			</c:when>
+			<c:otherwise>
+				<table class="tableSection">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>City</th>
+							<th>Date of Post</th>
+							<th>Date of Event</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${basketball_events}" var="entry">
+							<!--  u get the entries from guestbook.java -->
+							<tr>
+								<td>${entry.title}</td>
+								<td>${entry.city}</td>
+								<td>${entry.date_post}</td>
+								<td>${entry.date_event}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<br>
+				<strong>Login now to Link Up!</strong>
+				<p>
+					<a href="Login" class="button">Login</a>
+				</p>
+			</c:otherwise>
+		</c:choose>
 	</div>
-
-
-
-
-
-	<!-- Map -->
+	
+	<a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+	
+	<!-- Map 
 	<section id="contact" class="map">
 		<iframe width="100%" height="100%" frameborder="0" scrolling="no"
 			marginheight="0" marginwidth="0"
@@ -253,23 +319,13 @@ tr td:hover {
 		<br /> <small> <a
 			href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
 		</small>
-	</section>
-
+	</section> -->
 	<!-- End Page Content -->
-	</div>
-
-
-
-
-
-
-
 
 	<script>
 		// Automatic Slideshow - change image every 4 seconds
 		var myIndex = 0;
 		carousel();
-
 		function carousel() {
 			var i;
 			var x = document.getElementsByClassName("mySlides");
@@ -283,7 +339,6 @@ tr td:hover {
 			x[myIndex - 1].style.display = "block";
 			setTimeout(carousel, 4000);
 		}
-
 		// Used to toggle the menu on small screens when clicking on the menu button
 		function myFunction() {
 			var x = document.getElementById("navDemo");
@@ -293,7 +348,6 @@ tr td:hover {
 				x.className = x.className.replace(" w3-show", "");
 			}
 		}
-
 		// When the user clicks anywhere outside of the modal, close it
 		var modal = document.getElementById('ticketModal');
 		window.onclick = function(event) {
@@ -302,6 +356,23 @@ tr td:hover {
 			}
 		}
 	</script>
+	
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="./HomepageContent/vendor/jquery/jquery.min.js"></script>
+	<script
+		src="./HomepageContent/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script
+		src="./HomepageContent/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="./HomepageContent/js/stylish-portfolio.min.js"></script>
+
+
+	<script defer
+		src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -316,6 +387,7 @@ tr td:hover {
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
 	<script src="./HomepageContent/js/seed.js"></script>
 	<script src="./HomepageContent/js/main.js"></script>
 

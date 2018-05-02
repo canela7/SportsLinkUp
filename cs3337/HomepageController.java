@@ -1,8 +1,7 @@
 package cs3337;
 
 import java.io.IOException;
-//import javax.servlet.RequestDispatcher;
-//import javax.servlet.ServletConfig;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +18,16 @@ public class HomepageController extends HttpServlet {
     {
         super();
     }
+    
+    public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			throw new ServletException(e);
+		}
+	}
 
     protected void doGet( HttpServletRequest request,
         HttpServletResponse response ) throws ServletException, IOException

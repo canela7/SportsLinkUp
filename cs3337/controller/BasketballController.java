@@ -1,4 +1,4 @@
-package cs3337;
+package cs3337.controller;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -15,11 +15,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Cricket")
-public class CricketController extends HttpServlet {
+import cs3337.data.EventData;
+
+@WebServlet("/Basketball")
+public class BasketballController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public CricketController() {
+	public BasketballController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -36,7 +38,7 @@ public class CricketController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		List<EventData> cricket_events = new ArrayList<EventData>();
+		List<EventData> basketball_events = new ArrayList<EventData>();
 
 		Connection c = null;
 		try {
@@ -46,7 +48,7 @@ public class CricketController extends HttpServlet {
 
 			c = DriverManager.getConnection(url, username, password);
 			Statement stmt = c.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from cricket_Matches");
+			ResultSet rs = stmt.executeQuery("select * from basketball_Matches");
 
 			// while( rs.next() ) {
 			// entries.add( new DepartmentLibraryEntry( rs.getInt( "id" ),
@@ -56,7 +58,7 @@ public class CricketController extends HttpServlet {
 			// }
 
 			while (rs.next()) {
-				cricket_events.add(new EventData(rs.getInt("id"), rs.getString("city"), rs.getString("title"),
+				basketball_events.add(new EventData(rs.getInt("id"), rs.getString("city"), rs.getString("title"),
 						rs.getDate("date_post"), rs.getString("date_event"), rs.getString("user_name"),
 						rs.getString("number_players"), rs.getString("age_requirement"), rs.getString("event_time"),
 						rs.getString("description"), rs.getString("address")));
@@ -74,8 +76,8 @@ public class CricketController extends HttpServlet {
 			}
 		}
 
-		request.setAttribute("cricket_events", cricket_events);
-		request.getRequestDispatcher("/WEB-INF/Homepage/cricket.jsp").forward(request, response);
+		request.setAttribute("basketball_events", basketball_events);
+		request.getRequestDispatcher("/WEB-INF/Homepage/basketball.jsp").forward(request, response);
 
 	}
 

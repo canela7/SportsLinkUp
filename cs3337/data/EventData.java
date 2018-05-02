@@ -1,4 +1,4 @@
-package cs3337;
+package cs3337.data;
 import java.util.Date;
 
 public class EventData {

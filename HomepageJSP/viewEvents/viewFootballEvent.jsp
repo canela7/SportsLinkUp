@@ -19,7 +19,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>View Basketball Event</title>
+<title>View Football Event</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="./HomepageContent/vendor/bootstrap/css/bootstrap.min.css"
@@ -86,7 +86,7 @@
     
 	<div class="container">
 		<div class="well" align="center">
-			<form action="viewBasketballEvent" method="post">
+			<form action="viewFootballEvent" method="post">
 				<h2>Name of Creator: ${entry.user_name}</h2>
 				<br />
 				<h2>City of Event: ${entry.city}</h2>
@@ -108,7 +108,7 @@
 				<h2>Address: ${entry.address}</h2>
 				<br /> <input class="w3-button w3-section w3-blue w3-ripple"
 					type="submit" name="Return to Sport Page"
-					value="Return to Basketball Page" />
+					value="Return to Football Page" />
 			</form>
 
 			<section id="contact" class="map">

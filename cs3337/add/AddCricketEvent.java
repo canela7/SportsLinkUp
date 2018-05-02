@@ -1,4 +1,4 @@
-package cs3337;
+package cs3337.add;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -52,8 +52,8 @@ public class AddCricketEvent extends HttpServlet {
             pstmt.setString(2, request.getParameter("title"));
             pstmt.setString(3, request.getParameter("date"));
             pstmt.setString(4, request.getParameter("name"));
-            pstmt.setInt(5, Integer.parseInt(request.getParameter("players")));
-            pstmt.setInt(6, Integer.parseInt(request.getParameter("ageLimit")));
+            pstmt.setString(5, request.getParameter("players"));
+            pstmt.setString(6, request.getParameter("ageLimit"));
             pstmt.setString(7, request.getParameter("time"));
             pstmt.setString(8, request.getParameter("description"));
             
