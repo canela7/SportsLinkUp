@@ -3,9 +3,11 @@ package cs3337.login;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,16 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Login
+ * Servlet implementation class Register
  */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
+@WebServlet("/Register")
+public class Register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	String getSportId = "";
-	String page = "";
-	
-	public Login() {
+	public Register() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -40,10 +39,8 @@ public class Login extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		getSportId = request.getParameter("sportid");
-		request.setAttribute("getSportId", getSportId);
-		request.getRequestDispatcher("/WEB-INF/Homepage/loginUser/login.jsp").forward(request, response);
+
+		request.getRequestDispatcher("/WEB-INF/Homepage/loginUser/register.jsp").forward(request, response);
 
 	}
 
@@ -54,8 +51,8 @@ public class Login extends HttpServlet {
 		String userNameLow = user_name.toLowerCase();
 		String user_password = request.getParameter("password");
 		String userPassLow = user_password.toLowerCase();
-		getSportId = request.getParameter("sportid");
-		int in = -1;
+		boolean notTaken = true;
+		String page = "";
 
 		Connection c = null;
 		try {
@@ -63,47 +60,37 @@ public class Login extends HttpServlet {
 			String username = "cs3337stu06";
 			String password = "3G7!PR7E";
 
+			String sql = "insert into sports_users (name, password) value (?, ?)";
 			c = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstmt = c.prepareStatement(sql);
+			
 			Statement stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from sports_users");
-
-			// retrieve data from result set row
+			
 			while (rs.next()) {
-
 				String Admin = rs.getString("name");
 				String abcd = rs.getString("password");
-
-				// check username and password, and if correct, redirect to DepartmentLibrary
+				
 				if (userNameLow.equals(Admin) && userPassLow.equals(abcd)) {
-					// check in the memebers servlet it "user" to get
-					request.getSession().invalidate();
-					request.getSession().setAttribute("user", user_name);
-					in = 0;
-					page = "Homepage";
-					
-					if(getSportId.equals("1")) {
-						page = "Soccer";
-					}
-					else if(getSportId.equals("2")) {
-						page = "Basketball";
-					}
-					else if(getSportId.equals("3")) {
-						page = "Football";
-					}
-					else if(getSportId.equals("4")) {
-						page = "Cricket";
-					}
+					notTaken = false;
+					page = "Register";
 				}
 			}
 			
-			if(in == -1) {
-				page = "Login?sportid=" + getSportId;
-				request.getSession().setAttribute("errorMessage", "Invalid user or password");
+			if(notTaken) {
+				request.getSession().invalidate();
+				request.getSession().setAttribute("user", user_name);
+				page = "Homepage";
+				pstmt.setString(1, user_name);
+	            pstmt.setString(2, user_password);
+	            
+	            pstmt.executeUpdate();
+	            c.close();
 			}
-			
-			request.setAttribute("getSportId", getSportId);
-			
-			
+			else {
+				request.getSession().setAttribute("alreadyExist", "This username is already taken");
+			}
+
 			c.close();
 		} catch (SQLException e) {
 			throw new ServletException(e);

@@ -50,13 +50,6 @@ public class CricketController extends HttpServlet {
 			Statement stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from cricket_Matches");
 
-			// while( rs.next() ) {
-			// entries.add( new DepartmentLibraryEntry( rs.getInt( "id" ),
-			// rs.getString( "item_type" ), rs.getString( "name" ),
-			// rs.getString("additional_info"),
-			// rs.getString("available")));
-			// }
-
 			while (rs.next()) {
 				cricket_events.add(new EventData(rs.getInt("id"), rs.getString("city"), rs.getString("title"),
 						rs.getDate("date_post"), rs.getString("date_event"), rs.getString("user_name"),
@@ -77,7 +70,7 @@ public class CricketController extends HttpServlet {
 		}
 
 		request.setAttribute("cricket_events", cricket_events);
-		request.getRequestDispatcher("/WEB-INF/Homepage/cricket.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Homepage/sportLinks/cricket.jsp").forward(request, response);
 
 	}
 

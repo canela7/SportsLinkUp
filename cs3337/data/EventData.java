@@ -14,8 +14,6 @@ public class EventData {
 	private String event_time;
 	private String description;
 	private String address;
-	
-	
 
 	public EventData(Integer id, String city, String title, Date date_post, String date_event, String user_name,
 			String number_players, String age_requierment, String event_time, String description, String address) {

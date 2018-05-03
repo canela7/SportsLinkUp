@@ -3,40 +3,13 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<style>
-
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-
-.button {
-    background-color: green;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-
-</style>
-<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="./HomepageContent/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-
+<link rel="icon" href="./HomepageContent/img/SportLinkUp.jpg" />
 <!-- Custom Fonts -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -63,6 +36,41 @@ input[type=text], input[type=password] {
 <!-- Custom CSS -->
 <link rel="stylesheet" type="text/css"
 	href="./HomepageContent/css/stylish-portfolio.css" />
+<style>
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+.button {
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+</style>
+<script>
+	function myFunction() {
+		var x = document.getElementById("myInput");
+		if (x.type === "password") {
+			x.type = "text";
+		} else {
+			x.type = "password";
+		}
+	}
+</script>
+<title>Login</title>
 </head>
 <body>
 <div class="container">
@@ -75,11 +83,20 @@ input[type=text], input[type=password] {
 	</section>
 	
 	<div class="well" align="center">
-		<form action="Login" method="post">
-			Username:<br /> 
-			<input type="text" placeholder="Enter Username" name="username"/> <br />
-			Password:<br /> 
-			<input type="text" placeholder="Enter Password" name="password"/> <br />
+		<form action="Login?sportid=${getSportId}" method="post">
+			<h1>Login</h1>
+			<br />
+			<c:if test="${not empty errorMessage}">
+				<p class="lead text-danger">
+					<code>${errorMessage}</code>
+				</p>
+			</c:if>
+			<h3>Username:</h3>
+			<input type="text" placeholder="Enter Username" name="username" required/> <br />
+			<h3>Password:</h3>
+			<input type="password" placeholder="Enter Password" name="password" id="myInput" required/>
+			<strong style="font-size:20px">Show Password </strong>
+			<input type="checkbox" onclick="myFunction()" />
 			<input  class="button" type="submit" name="login" value="Login" />
 		</form>
 	</div>

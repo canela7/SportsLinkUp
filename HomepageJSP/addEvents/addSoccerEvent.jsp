@@ -8,6 +8,7 @@
 <head>
 <title>Post Event</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="./HomepageContent/img/SportLinkUp.jpg" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -120,7 +121,7 @@
 				<div class="w3-rest">
 					<div>
 						<label for="party">Date of Event:</label> <input id="party"
-							type="text" name="date" placeholder="YYYY-MM-DD"
+							type="date" name="date" placeholder="YYYY-MM-DD"
 							required><span class="validity"></span>
 					</div>
 				</div>
@@ -130,8 +131,8 @@
 				<div class="w3-rest">
 					<div>
 						<label for="party">Time (required times only 7:00am -
-							7:00pm):</label> <input id="party" type="text" name="time"
-							required placeholder="7:00am - 7:00pm"><span class="validity"></span>
+							7:00pm):</label> <input id="party" type="time" name="time"
+							required placeholder="7:00am - 7:00pm" min="07:00" max="19:00"><span class="validity"></span>
 					</div>
 				</div>
 			</div>

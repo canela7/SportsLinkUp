@@ -27,7 +27,31 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().invalidate();
-		response.sendRedirect("Homepage");
+		String getSportId = request.getParameter("sportid");
+		String page = "";
+		
+		if(getSportId.equals("1")) {
+			page = "Soccer";
+			response.sendRedirect(page);
+		}
+		else if(getSportId.equals("2")) {
+			page = "Basketball";
+			response.sendRedirect(page);
+		}
+		else if(getSportId.equals("3")) {
+			page = "Football";
+			response.sendRedirect(page);
+		}
+		else if(getSportId.equals("4")) {
+			page = "Cricket";
+			response.sendRedirect(page);
+		}
+		else if(getSportId.equals("0")) {
+			response.sendRedirect("Homepage");
+		}
+		else {
+			response.sendRedirect("Homepage");
+		}
 	}
 
 

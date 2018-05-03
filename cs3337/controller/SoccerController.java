@@ -70,7 +70,7 @@ public class SoccerController extends HttpServlet {
 		}
 
 		request.setAttribute("soccer_events", soccer_events);
-		request.getRequestDispatcher("/WEB-INF/Homepage/soccer.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Homepage/sportLinks/soccer.jsp").forward(request, response);
 
 	}
 

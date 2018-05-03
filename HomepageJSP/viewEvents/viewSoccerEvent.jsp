@@ -15,12 +15,9 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>View Soccer Event</title>
-
+<link rel="icon" href="./HomepageContent/img/SportLinkUp.jpg" />
 <!-- Bootstrap Core CSS -->
 <link href="./HomepageContent/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -87,25 +84,36 @@
 	<div class="container">
 		<div class="well" align="center">
 			<form action="viewSoccerEvent" method="post">
-				<h2>Name of Creator: ${entry.user_name}</h2>
-				<br />
-				<h2>City of Event: ${entry.city}</h2>
-				<br />
-				<h2>Title of Event: ${entry.title}</h2>
-				<br />
-				<h2>Date Posted: ${entry.date_post}</h2>
-				<br />
-				<h2>Date of Event: ${entry.date_event}</h2>
-				<br />
-				<h2>Time of Event: ${entry.event_time}</h2>
-				<br />
-				<h2>Number of Players: ${entry.number_players}</h2>
-				<br />
-				<h2>Age Requirement: ${entry.age_requirement}</h2>
-				<br />
-				<h2>Description: ${entry.description}</h2>
-				<br />
-				<h2>Address: ${entry.address}</h2>
+				<h1>Soccer</h1>
+				<br>
+				<h3>Name of Creator:</h3>
+				<h3>${entry.user_name}</h3>
+				<br>
+				<h3>City of Event:</h3>
+				<h3>${entry.city}</h3>
+				<br>
+				<h3>Title of Event:</h3>
+				<h3>${entry.title}</h3>
+				<br>
+				<h3>Date Posted:</h3>
+				<h3>${entry.date_post}</h3>
+				<br>
+				<h3>Date of Event:</h3>
+				<h3>${entry.date_event}</h3>
+				<br>
+				<h3>Time of Event:</h3>
+				<h3>${entry.event_time}</h3>
+				<br>
+				<h3>Number of Players:</h3>
+				<h3>${entry.number_players}</h3>
+				<h3>Age Requirement:</h3>
+				<h3>${entry.age_requirement}</h3>
+				<br>
+				<h3>Description:</h3>
+				<h3>${entry.description}</h3>
+				<br>
+				<h3>Address:</h3>
+				<h3>${entry.address}</h3>
 				<br /> <input class="w3-button w3-section w3-blue w3-ripple"
 					type="submit" name="Return to Sport Page"
 					value="Return to Soccer Page" />
@@ -128,23 +136,6 @@
     <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
-
-	<!-- Map 
-	<section id="contact" class="map">
-		<iframe width="100%" height="100%" frameborder="0" scrolling="no"
-			marginheight="0" marginwidth="0"
-			src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-		<br /> <small> <a
-			href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-		</small>
-	</section>
-
-	<section id="contact" class="map">
-		<iframe width="100%" height="100%" frameborder="0" style="border: 0"
-			src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDjmeo6YPG5efrHmJ-mwUYtAdQnA5eciZI
-    &q=${userAddressModified}"
-			allowfullscreen> </iframe>
-	</section> -->
 
 
 	<!-- Bootstrap core JavaScript -->

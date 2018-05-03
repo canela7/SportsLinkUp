@@ -50,13 +50,6 @@ public class FootballController extends HttpServlet {
 			Statement stmt = c.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from football_Matches");
 
-			// while( rs.next() ) {
-			// entries.add( new DepartmentLibraryEntry( rs.getInt( "id" ),
-			// rs.getString( "item_type" ), rs.getString( "name" ),
-			// rs.getString("additional_info"),
-			// rs.getString("available")));
-			// }
-
 			while (rs.next()) {
 				football_events.add(new EventData(rs.getInt("id"), rs.getString("city"), rs.getString("title"),
 						rs.getDate("date_post"), rs.getString("date_event"), rs.getString("user_name"),
@@ -77,7 +70,7 @@ public class FootballController extends HttpServlet {
 		}
 
 		request.setAttribute("football_events", football_events);
-		request.getRequestDispatcher("/WEB-INF/Homepage/football.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/Homepage/sportLinks/football.jsp").forward(request, response);
 
 	}
 

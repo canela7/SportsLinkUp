@@ -35,30 +35,6 @@ public class AddSoccerEvent extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//List<DepartmentLibraryEntry> entries = (List<DepartmentLibraryEntry>) getServletContext().getAttribute("entries");
-		
-		 //Integer id;
-		/* String city = request.getParameter("cityState"); //
-		 
-		 String title = request.getParameter("title"); //
-//		 Date date_post;
-		 
-		 String date_event = request.getParameter("soccerDate");
-		 
-		 String user_name = request.getParameter("soccerName");//
-		 
-		 Integer number_players = Integer.parseInt(request.getParameter("numberOfSoccerPlayers")); //
-		 Integer age_requierment = Integer.parseInt(request.getParameter("ageLimitSoccer"));//
-		 
-		 String event_time = request.getParameter("event_time");
-		 
-		 String description = request.getParameter("soccerDescription");//
-		 
-		 String address = request.getParameter("parkAddress");//*/
-		 
-		
-	
-		
 		Connection c = null;
         try
         {
@@ -82,7 +58,10 @@ public class AddSoccerEvent extends HttpServlet {
             pstmt.setString(8, request.getParameter("description"));
             
             //get the entire address
-            String fullAddress = request.getParameter("address") + ", " + request.getParameter("city") + ", " + request.getParameter("zip");
+            String fullAddress = request.getParameter("address") + request.getParameter("city") + request.getParameter("zip");
+            if(fullAddress != "") {
+            	fullAddress = request.getParameter("address") + ", " + request.getParameter("city") + ", " + request.getParameter("zip");
+            }
             
             pstmt.setString(9, fullAddress);
        

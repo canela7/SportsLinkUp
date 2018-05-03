@@ -11,12 +11,12 @@
 <head>
 
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sports Link Up</title>
 
+<link rel="icon" href="./HomepageContent/img/SportLinkUp.jpg" />
 <!-- Bootstrap Core CSS -->
 <link href="./HomepageContent/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -57,11 +57,13 @@
 				href="#contact">Contact</a></li>
 			<c:if test="${not empty sessionScope.user}">
 				<li class="sidebar-nav-item"><a class="js-scroll-trigger"
-					href="Logout">Logout</a></li>
+					href="Logout?sportid=0">Logout</a></li>
 			</c:if>
 			<c:if test="${empty sessionScope.user}">
 				<li class="sidebar-nav-item"><a class="js-scroll-trigger"
 					href="Login">Login</a></li>
+				<li class="sidebar-nav-item"><a class="js-scroll-trigger"
+					href="Register">Register</a></li>
 			</c:if>
 		</ul>
 	</nav>
@@ -85,16 +87,6 @@
 			</div>
 			<div class="row no-gutters">
 				<div class="col-lg-6">
-					<a class="portfolio-item" href="Basketball"> <span
-						class="caption"> <span class="caption-content">
-								<h1>Basketball</h1>
-								<h5 class="mb-0">Play Ball!</h5> <br>
-							<br>
-						</span>
-					</span> <img class="img-fluid"
-						src="./HomepageContent/img/Basketball-1.jpg" alt=""></a>
-				</div>
-				<div class="col-lg-6">
 					<a class="portfolio-item" href="Soccer"> <span class="caption">
 							<span class="caption-content">
 								<h1>Soccer</h1>
@@ -103,6 +95,16 @@
 						</span>
 					</span> <img class="img-fluid" src="./HomepageContent/img/Soccer-1.jpg"
 						alt=""></a>
+				</div>
+				<div class="col-lg-6">
+					<a class="portfolio-item" href="Basketball"> <span
+						class="caption"> <span class="caption-content">
+								<h1>Basketball</h1>
+								<h5 class="mb-0">Play Ball!</h5> <br>
+							<br>
+						</span>
+					</span> <img class="img-fluid"
+						src="./HomepageContent/img/Basketball-1.jpg" alt=""></a>
 				</div>
 				<div class="col-lg-6">
 					<a class="portfolio-item" href="Football"> <span

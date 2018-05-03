@@ -8,13 +8,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Football Events</title>
+<title>Soccer Events</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Bootstrap Core CSS -->
 <link href="./HomepageContent/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-
+<link rel="icon" href="./HomepageContent/img/SportLinkUp.jpg" />
 	<!-- Custom Fonts -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -142,16 +142,26 @@ table.tableSection td {
 	<div class="w3-top">
 		<div class="w3-bar w3-black w3-card">
 			<a href="Homepage" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-			<a href="Basketball"
-				class="w3-bar-item w3-button w3-padding-large w3-hide-small">Basketball</a>
 			<a href="Soccer"
 				class="w3-bar-item w3-button w3-padding-large w3-hide-small">Soccer</a>
+			<a href="Basketball"
+				class="w3-bar-item w3-button w3-padding-large w3-hide-small">Basketball</a>
 			<a href="Football"
 				class="w3-bar-item w3-button w3-padding-large w3-hide-small">Football</a>
 			<a href="Cricket"
 				class="w3-bar-item w3-button w3-padding-large w3-hide-small">Cricket</a>
+			<c:if test="${not empty sessionScope.user}">
+				<a class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+					href="Logout?sportid=1">Logout</a>
+			</c:if>
+			<c:if test="${empty sessionScope.user}">
+				<a class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+					href="Login?sportid=1">Login</a>
+				<a class="w3-bar-item w3-button w3-padding-large w3-hide-small"
+					href="Register">Register</a>
+			</c:if>
 			<div class="w3-dropdown-hover w3-hide-small"></div>
-			<a href="#app"
+			<a href="#query"
 				class="w3-padding-large w3-hover-red w3-hide-small w3-right"> <i
 				class="fa fa-search"></i>
 			</a>
@@ -163,7 +173,7 @@ table.tableSection td {
 
 		<!-- Automatic Slideshow Images -->
 		<div class="mySlides w3-display-container w3-center">
-			<img src="./HomepageContent/img/Football-1.jpg" style="width: 100%"
+			<img src="./HomepageContent/img/Soccer-1.jpg" style="width: 100%"
 				height="450">
 			<div
 				class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
@@ -173,38 +183,51 @@ table.tableSection td {
 				</p>
 			</div>
 		</div>
-		<!-- <div class="mySlides w3-display-container w3-center">
-    <img src="../img/Football-2.jpg" style="width:100%" height="450">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>New York</h3>
-      <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
-    </div>
-  </div> -->
-		<!-- <div class="mySlides w3-display-container w3-center">
-    <img src="../img/Soccer-3.jpg" style="width:100%" height="450">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-      <h3>Chicago</h3>
-      <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
-    </div> 
-	</div> -->
-
+		<div class="mySlides w3-display-container w3-center">
+			<img src="./HomepageContent/img/Soccer-2.jpg" style="width: 100%"
+				height="450">
+			<div
+				class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+				<h3>New York</h3>
+				<p>
+					<b>The atmosphere in New York is lorem ipsum.</b>
+				</p>
+			</div>
+		</div>
+		<div class="mySlides w3-display-container w3-center">
+			<img src="./HomepageContent/img/Soccer-3.jpg" style="width: 100%"
+				height="450">
+			<div
+				class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+				<h3>Chicago</h3>
+				<p>
+					<b>Thank you, Chicago - A night we won't forget.</b>
+				</p>
+			</div>
+		</div>
 
 
 		<!-- The Band Section -->
 		<div class="w3-container w3-content w3-center w3-padding-64"
 			style="max-width: 75%" id="app">
 
-			<h2 class="w3-wide">Current Football Events</h2>
+			<h2 class="w3-wide">Current Soccer Events</h2>
 			<p class="w3-opacity">
-				<i>Play Football</i>
+				<i>Play Soccer</i>
 			</p>
-			<form action="Football">
+			<c:if test="${not empty sessionScope.user}">
+			<br>
+				<h1>Welcome, ${fn:toUpperCase(user)} </h1>
+			<br>
+			</c:if>
+			<form action="Soccer">
 				<h4 class="w3-wide">
 					Search: <input type="text" name="query"
 						placeHolder="Search City or Title"><input type="submit"
 						value="Search">
 				</h4>
 			</form>
+
 
 			<c:set var="userSearch" value="${param.query}" />
 			<c:set var="userSearchModified" value="${fn:toLowerCase(userSearch)}" />
@@ -219,11 +242,12 @@ table.tableSection td {
 								<th>City</th>
 								<th>Date of Post</th>
 								<th>Date of Event</th>
+								<th>View Event</th>
 							</tr>
 						</thead>
 						<tbody>
 
-							<c:forEach items="${football_events}" var="entry">
+							<c:forEach items="${soccer_events}" var="entry">
 								<c:set var="cityName" value="${entry.city}" />
 								<c:set var="cityNameModified"
 									value="${fn:toLowerCase(cityName)}" />
@@ -238,14 +262,19 @@ table.tableSection td {
 										<td>${entry.city}</td>
 										<td>${entry.date_post}</td>
 										<td>${entry.date_event}</td>
+										<td><a href="#app" onclick="alertUser()">View Event</a></td>
 									</tr>
 								</c:if>
 							</c:forEach>
 						</tbody>
 					</table>
-					<strong>Login now to Link Up!</strong>
 					<p>
-						<a href='Login' class="button">Login</a>
+						<strong>Login now to Link Up!</strong> <br>
+						<a href="Login?sportid=1" class="button">Login</a>
+					</p>
+					<p>
+						<strong>Don't have an account yet? Sign up now!</strong> <br>
+						<a href="Register" class="button">Register</a>
 					</p>
 				</c:when>
 
@@ -264,7 +293,7 @@ table.tableSection td {
 						</thead>
 						<tbody>
 
-							<c:forEach items="${football_events}" var="entry">
+							<c:forEach items="${soccer_events}" var="entry">
 								<c:set var="cityName" value="${entry.city}" />
 								<c:set var="cityNameModified"
 									value="${fn:toLowerCase(cityName)}" />
@@ -279,12 +308,12 @@ table.tableSection td {
 										<td>${entry.city}</td>
 										<td>${entry.date_post}</td>
 										<td>${entry.date_event}</td>
-										<td><a href="viewFootballEvent?id=${entry.id}">View
+										<td><a href="viewSoccerEvent?id=${entry.id}">View
 												Event</a></td>
-										<td><a href="editFootballEvent?id=${entry.id}">Edit
+										<td><a href="editSoccerEvent?id=${entry.id}">Edit
 												Event</a></td>
 										<td><a class="textColor"
-											href="DeleteFootball?id=${entry.id}">Delete Event</a></td>
+											href="DeleteSoccer?id=${entry.id}">Delete Event</a></td>
 									</tr>
 								</c:if>
 							</c:forEach>
@@ -292,9 +321,9 @@ table.tableSection td {
 					</table>
 					<br>
 					<h1>Link Up!</h1>
-					<a href="addFootballEvent" class="button">Create Football Link Up</a>
+					<a href="addSoccerEvent" class="button">Create Soccer Link Up</a>
 					<p class="button">
-						<a class="link" href='Logout'>Logout</a>
+						<a class="link" href="Logout?sportid=1">Logout</a>
 					</p>
 				</c:when>
 
@@ -312,28 +341,28 @@ table.tableSection td {
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${football_events}" var="entry">
+							<c:forEach items="${soccer_events}" var="entry">
 								<!--  u get the entries from guestbook.java -->
 								<tr>
 									<td>${entry.title}</td>
 									<td>${entry.city}</td>
 									<td>${entry.date_post}</td>
 									<td>${entry.date_event}</td>
-									<td><a href="viewFootballEvent?id=${entry.id}">View
+									<td><a href="viewSoccerEvent?id=${entry.id}">View
 											Event</a></td>
-									<td><a href="editFootballEvent?id=${entry.id}">Edit
+									<td><a href="editSoccerEvent?id=${entry.id}">Edit
 											Event</a></td>
 									<td><a class="textColor"
-										href="DeleteFootball?id=${entry.id}">Delete Event</a></td>
+										href="DeleteSoccer?id=${entry.id}">Delete Event</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 					<br>
 					<h1>Link Up!</h1>
-					<a href="addFootballEvent" class="button">Create Football Link Up</a>
+					<a href="addSoccerEvent" class="button">Create Soccer Link Up</a>
 					<p class="button">
-						<a class="link" href='Logout'>Logout</a>
+						<a class="link" href="Logout?sportid=1">Logout</a>
 					</p>
 				</c:when>
 
@@ -345,24 +374,30 @@ table.tableSection td {
 								<th>City</th>
 								<th>Date of Post</th>
 								<th>Date of Event</th>
+								<th>View Event</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${football_events}" var="entry">
+							<c:forEach items="${soccer_events}" var="entry">
 								<!--  u get the entries from guestbook.java -->
 								<tr>
 									<td>${entry.title}</td>
 									<td>${entry.city}</td>
 									<td>${entry.date_post}</td>
 									<td>${entry.date_event}</td>
+									<td><a href="#app" onclick="alertUser()">View Event</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
 					</table>
 					<br>
-					<strong>Login now to Link Up!</strong>
 					<p>
-						<a href='Login' class="button">Login</a>
+						<strong>Login now to Link Up!</strong> <br>
+						<a href="Login?sportid=1" class="button">Login</a>
+					</p>
+					<p>
+						<strong>Don't have an account yet? Sign up now!</strong> <br>
+						<a href="Register" class="button">Register</a>
 					</p>
 				</c:otherwise>
 			</c:choose>
@@ -372,6 +407,7 @@ table.tableSection td {
 			<i class="fa fa-angle-up"></i>
 		</a>
 	</div>
+
 
 	<script>
 		// Automatic Slideshow - change image every 4 seconds
@@ -436,9 +472,15 @@ table.tableSection td {
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
 	<script src="./HomepageContent/js/seed.js"></script>
 	<script src="./HomepageContent/js/main.js"></script>
 
+	<script type="text/javascript">
+		function alertUser() {
+			alert("Please login to view the event");
+		}
+	</script>
 
 </body>
 

@@ -58,7 +58,10 @@ public class AddBasketballEvent extends HttpServlet {
             pstmt.setString(8, request.getParameter("description"));
             
             //get the entire address
-            String fullAddress = request.getParameter("address") + ", " + request.getParameter("city") + ", " + request.getParameter("zip");
+            String fullAddress = request.getParameter("address") + request.getParameter("city") + request.getParameter("zip");
+            if(fullAddress != "") {
+            	fullAddress = request.getParameter("address") + ", " + request.getParameter("city") + ", " + request.getParameter("zip");
+            }
             
             pstmt.setString(9, fullAddress);
        
