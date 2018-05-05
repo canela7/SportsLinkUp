@@ -121,8 +121,8 @@
 				<div class="w3-rest">
 					<div>
 						<label for="party">Date of Event:</label> <input id="party"
-							type="date" name="date" placeholder="YYYY-MM-DD"
-							required><span class="validity"></span>
+							type="date" name="date" placeholder="YYYY-MM-DD" required><span
+							class="validity"></span>
 					</div>
 				</div>
 			</div>
@@ -130,9 +130,11 @@
 			<div class="w3-row w3-section">
 				<div class="w3-rest">
 					<div>
-						<label for="party">Time (required times only 7:00am -
-							7:00pm):</label> <input id="party" type="time" name="time"
-							required placeholder="7:00am - 7:00pm" min="07:00" max="19:00"><span class="validity"></span>
+						<label for="party">Time (required times only 7:00 AM - 7:00 PM):</label> 
+						<input id="party" type="time" name="time1" required placeholder="07:00 - 19:00" min="07:00" max="19:00">
+						<span>to</span>
+						<input id="party" type="time" name="time2" required placeholder="07:00 - 19:00" min="07:00" max="19:00">
+						<span class="validity"></span>
 					</div>
 				</div>
 			</div>

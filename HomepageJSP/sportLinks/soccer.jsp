@@ -41,7 +41,7 @@
 	href="./HomepageContent/css/stylish-portfolio.css" />
 <style>
 body {
-	font-family: "Lato", sans-serif
+	font-family: "Lato", sans-serif;
 }
 
 .mySlides {
@@ -174,8 +174,8 @@ table.tableSection td {
 		<!-- Automatic Slideshow Images -->
 		<div class="mySlides w3-display-container w3-center">
 			<img src="./HomepageContent/img/Soccer-1.jpg" style="width: 100%"
-				height="450">
-			<div
+				height="540">
+			<!-- <div
 				class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
 				<h3>Los Angeles</h3>
 				<p>
@@ -203,7 +203,7 @@ table.tableSection td {
 				<p>
 					<b>Thank you, Chicago - A night we won't forget.</b>
 				</p>
-			</div>
+			</div> -->
 		</div>
 
 
@@ -211,15 +211,17 @@ table.tableSection td {
 		<div class="w3-container w3-content w3-center w3-padding-64"
 			style="max-width: 75%" id="app">
 
+			<c:if test="${not empty sessionScope.user}">
+			<hr>
+				<h1 style="font-size:100px; color:DeepSkyBlue">Welcome, ${user}! </h1>
+			<hr>
+			</c:if>
+
 			<h2 class="w3-wide">Current Soccer Events</h2>
 			<p class="w3-opacity">
 				<i>Play Soccer</i>
 			</p>
-			<c:if test="${not empty sessionScope.user}">
-			<br>
-				<h1>Welcome, ${fn:toUpperCase(user)} </h1>
-			<br>
-			</c:if>
+
 			<form action="Soccer">
 				<h4 class="w3-wide">
 					Search: <input type="text" name="query"

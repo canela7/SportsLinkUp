@@ -50,11 +50,16 @@ public class AddCricketEvent extends HttpServlet {
            
             pstmt.setString(1, request.getParameter("city"));
             pstmt.setString(2, request.getParameter("title"));
-            pstmt.setString(3, request.getParameter("date"));
+            pstmt.setString(3, request.getParameter("date"));     
             pstmt.setString(4, request.getParameter("name"));
             pstmt.setString(5, request.getParameter("players"));
             pstmt.setString(6, request.getParameter("ageLimit"));
-            pstmt.setString(7, request.getParameter("time"));
+            
+            String time1 = request.getParameter("time1");
+            String time2 = request.getParameter("time2");
+            String theTime = time1 + " - " + time2;
+            
+            pstmt.setString(7, theTime);
             pstmt.setString(8, request.getParameter("description"));
             
             //get the entire address

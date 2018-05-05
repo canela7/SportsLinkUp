@@ -50,7 +50,6 @@ public class Register extends HttpServlet {
 		String user_name = request.getParameter("username");
 		String userNameLow = user_name.toLowerCase();
 		String user_password = request.getParameter("password");
-		String userPassLow = user_password.toLowerCase();
 		boolean notTaken = true;
 		String page = "";
 
@@ -69,9 +68,9 @@ public class Register extends HttpServlet {
 			
 			while (rs.next()) {
 				String Admin = rs.getString("name");
-				String abcd = rs.getString("password");
+				String adminLow = Admin.toLowerCase();
 				
-				if (userNameLow.equals(Admin) && userPassLow.equals(abcd)) {
+				if (userNameLow.equals(adminLow)) {
 					notTaken = false;
 					page = "Register";
 				}

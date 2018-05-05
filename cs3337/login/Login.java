@@ -53,7 +53,6 @@ public class Login extends HttpServlet {
 		String user_name = request.getParameter("username");
 		String userNameLow = user_name.toLowerCase();
 		String user_password = request.getParameter("password");
-		String userPassLow = user_password.toLowerCase();
 		getSportId = request.getParameter("sportid");
 		int in = -1;
 
@@ -71,10 +70,11 @@ public class Login extends HttpServlet {
 			while (rs.next()) {
 
 				String Admin = rs.getString("name");
+				String adminLow = Admin.toLowerCase();
 				String abcd = rs.getString("password");
 
 				// check username and password, and if correct, redirect to DepartmentLibrary
-				if (userNameLow.equals(Admin) && userPassLow.equals(abcd)) {
+				if (userNameLow.equals(adminLow) && user_password.equals(abcd)) {
 					// check in the memebers servlet it "user" to get
 					request.getSession().invalidate();
 					request.getSession().setAttribute("user", user_name);
@@ -98,7 +98,7 @@ public class Login extends HttpServlet {
 			
 			if(in == -1) {
 				page = "Login?sportid=" + getSportId;
-				request.getSession().setAttribute("errorMessage", "Invalid user or password");
+				request.getSession().setAttribute("errorMessage", "Invalid username or password");
 			}
 			
 			request.setAttribute("getSportId", getSportId);

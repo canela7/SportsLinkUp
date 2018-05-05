@@ -174,14 +174,14 @@ table.tableSection td {
 		<!-- Automatic Slideshow Images -->
 		<div class="mySlides w3-display-container w3-center">
 			<img src="./HomepageContent/img/Basketball-1.jpg" style="width: 100%"
-				height="450">
-			<div
+				height="540">
+			<!-- <div
 				class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
 				<h3>Los Angeles</h3>
 				<p>
 					<b>We had the best time playing at Venice Beach!</b>
 				</p>
-			</div>
+			</div> -->
 		</div>
 		<!-- <div class="mySlides w3-display-container w3-center">
     <img src="../img/Soccer-2.jpg" style="width:100%" height="450">
@@ -202,15 +202,17 @@ table.tableSection td {
 		<div class="w3-container w3-content w3-center w3-padding-64"
 			style="max-width: 75%" id="app">
 
+			<c:if test="${not empty sessionScope.user}">
+			<hr>
+				<h1 style="font-size:100px; color:DeepSkyBlue">Welcome, ${user}! </h1>
+			<hr>
+			</c:if>
+
 			<h2 class="w3-wide">Current Basketball Events</h2>
 			<p class="w3-opacity">
 				<i>Play Basketball</i>
 			</p>
-			<c:if test="${not empty sessionScope.user}">
-			<br>
-				<h1>Welcome, ${fn:toUpperCase(user)} </h1>
-			<br>
-			</c:if>
+
 			<form action="Basketball">
 				<h4 class="w3-wide">
 					Search: <input type="text" name="query"
